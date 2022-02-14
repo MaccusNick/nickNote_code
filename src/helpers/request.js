@@ -14,7 +14,7 @@ export default function request(url, type = "GET", data = {}) {
     let option = {
       url,
       method: type,
-      ValidateStatus(status) {
+      validateStatus(status) {
         return (status >= 200 && status < 300) || status === 400;
       }
     };
@@ -33,8 +33,8 @@ export default function request(url, type = "GET", data = {}) {
         }
       })
       .catch(err => {
-        console.error({ msg: "网络异常1" });
-        reject({ msg: "网络异常2" });
+        console.error({ msg: "网络异常" });
+        reject({ msg: "网络异常" });
       });
   });
 }
