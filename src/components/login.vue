@@ -50,6 +50,8 @@
 </template>
 
 <script>
+import Bus from "@/helpers/bus";
+
 // import request from "@/helpers/request";
 // request("/auth").then(data => {
 //   console.log(data);
@@ -111,6 +113,7 @@ export default {
         .then(data => {
           this.register.isError = false;
           this.register.notice = "";
+          Bus.$emit("userInfo", { username: this.register.username });
           this.$router.push({ path: "notebooks" });
         })
         .catch(data => {
@@ -140,6 +143,7 @@ export default {
         .then(data => {
           this.login.isError = false;
           this.login.notice = "";
+          Bus.$emit("userInfo", { username: this.login.username });
           this.$router.push({ path: "notebooks" });
         })
         .catch(data => {
