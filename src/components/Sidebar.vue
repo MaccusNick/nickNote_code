@@ -3,7 +3,7 @@
     <avatar></avatar>
 
     <div class="icons">
-      <router-link to="/note/1" title="笔记">
+      <router-link to="/note" title="笔记">
         <i class="iconfont icon-note"></i>
       </router-link>
 
@@ -11,7 +11,7 @@
         <i class="iconfont icon-notebook"></i>
       </router-link>
 
-      <router-link to="/trash/2">
+      <router-link to="/trash">
         <i class="iconfont icon-trash"></i>
       </router-link>
     </div>

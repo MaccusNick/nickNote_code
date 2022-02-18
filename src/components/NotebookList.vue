@@ -11,7 +11,7 @@
         <div class="book-list">
           <router-link
             v-for="notebook in notebooks"
-            to="/note/1"
+            :to="`/note?notebookId=${notebook.id}`"
             class="notebook"
             :key="notebook.updatedAt"
           >
