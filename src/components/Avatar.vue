@@ -13,11 +13,10 @@ export default {
     };
   },
   created() {
-    Bus.$on('userInfo',user=>{
-      this.username = user.username
-    })
+    Bus.$on("userInfo", user => {
+      this.username = user.username;
+    });
     Auth.getInfo().then(res => {
-    
       if (res.isLogin) {
         this.username = res.data.username;
       }
@@ -39,7 +38,7 @@ span {
   text-align: center;
   line-height: 32px;
   border-radius: 50%;
-  background: #f2b81c;
+  background: #e47fca;
   color: #fff;
   text-shadow: 1px 0 1px #795c19;
   font-weight: bold;

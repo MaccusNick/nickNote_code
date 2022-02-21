@@ -87,7 +87,6 @@ export default {
       )
         .then(data => {
           this.statusText = "已保存";
-          console.log(data);
         })
         .catch(data => {
           this.statusText = "保存出错";
@@ -103,7 +102,6 @@ export default {
   },
   computed: {
     previewContent() {
-      console.log(this.curNote.content || "");
       return md.render(this.curNote.content || "");
     }
   }

@@ -10,10 +10,6 @@
       <router-link to="/notebooks">
         <i class="iconfont icon-notebook"></i>
       </router-link>
-
-      <router-link to="/trash">
-        <i class="iconfont icon-trash"></i>
-      </router-link>
     </div>
     <div class="logout">
       <i class="iconfont icon-logout" @click="logout"></i>
@@ -32,7 +28,7 @@ export default {
     logout() {
       Auth.logout().then(data => {
         console.log(data);
-        this.$router.push({ path: "login" });
+        this.$router.push({ path: "/#" });
       });
     }
   }

@@ -38,9 +38,7 @@ import Auth from "@/apis/auth";
 import NotebookList from "@/apis/notebooks";
 import { friendlyDate } from "@/helpers/util";
 
-NotebookList.getAll().then(res => {
-  console.log(res);
-});
+NotebookList.getAll().then(res => {});
 
 export default {
   name: "Login",
@@ -52,14 +50,13 @@ export default {
   created() {
     Auth.getInfo().then(res => {
       if (!res.isLogin) {
-        this.$router.push({ path: "/login" });
+        this.$router.push({ path: "/#" });
       }
     });
   },
   created() {
     NotebookList.getAll().then(res => {
       this.notebooks = res.data;
-      console.log(res.data);
     });
   },
   methods: {
@@ -74,7 +71,6 @@ export default {
           return NotebookList.addNoteBook({ title: value });
         })
         .then(res => {
-          console.log(res);
           res.data.friendlyCreatedAt = friendlyDate(res.data.createdAt);
 
           this.notebooks.unshift(res.data);
@@ -83,7 +79,6 @@ export default {
             message: res.msg
           });
         });
-   
     },
     onEdit(notebook) {
       let title = "";
@@ -127,14 +122,6 @@ export default {
             message: "已取消删除"
           });
         });
-
-      // let isConfirm = window.confirm("确定要删除吗");
-      // if (isConfirm) {
-      //   NotebookList.deleteNotebook(notebook.id).then(res => {
-      //     alert(res.msg);
-      //     this.notebooks.splice(this.notebooks.indexOf(notebook), 1);
-      //   });
-      // }
     }
   }
 };

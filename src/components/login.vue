@@ -52,15 +52,8 @@
 <script>
 import Bus from "@/helpers/bus";
 
-// import request from "@/helpers/request";
-// request("/auth").then(data => {
-//   console.log(data);
-// });
-
 import Auth from "@/apis/auth";
-Auth.getInfo().then(data => {
-  console.log(data);
-});
+Auth.getInfo().then(data => {});
 
 export default {
   name: "Login",
@@ -103,9 +96,6 @@ export default {
         return;
       }
 
-      console.log(
-        `start register..., username: ${this.register.username} , password: ${this.register.password}`
-      );
       Auth.register({
         username: this.register.username,
         password: this.register.password
@@ -114,7 +104,7 @@ export default {
           this.register.isError = false;
           this.register.notice = "";
           Bus.$emit("userInfo", { username: this.register.username });
-          this.$router.push({ path: "notebooks" });
+          this.$router.push({ path: "/notebooks" });
         })
         .catch(data => {
           this.register.isError = true;
@@ -133,9 +123,6 @@ export default {
         return;
       }
 
-      console.log(
-        `start login..., username: ${this.login.username} , password: ${this.login.password}`
-      );
       Auth.login({
         username: this.login.username,
         password: this.login.password
@@ -144,7 +131,7 @@ export default {
           this.login.isError = false;
           this.login.notice = "";
           Bus.$emit("userInfo", { username: this.login.username });
-          this.$router.push({ path: "notebooks" });
+          this.$router.push({ path: "/notebooks" });
         })
         .catch(data => {
           this.login.isError = true;
@@ -185,9 +172,7 @@ export default {
   display: flex;
   .main {
     flex: 1;
-    background: #36bc64
-      url(//cloud.hunger-valley.com/17-12-13/38476998.jpg-middle) center center
-      no-repeat;
+    background: #2c333c url("~@/assets/sky.png") center center no-repeat;
     background-size: contain;
   }
   .form {
@@ -209,7 +194,7 @@ export default {
     }
 
     .button {
-      background-color: #2bb964;
+      background-color: #2c333c;
       height: 36px;
       line-height: 36px;
       text-align: center;
